@@ -1,8 +1,8 @@
 import Image from "next/image";
-import styles from "./singlePost.module.css";
 import PostUser from "@/components/postUser/postUser";
 import { Suspense } from "react";
 import { getPost } from "@/lib/data";
+import styles from "./singlePost.module.css";
 
 // FETCH DATA WITH AN API
 const getData = async (slug) => {
@@ -31,6 +31,7 @@ const SinglePostPage = async ({ params }) => {
 
   // FETCH DATA WITH AN API
   const post = await getData(slug);
+  console.log(post);
 
   // FETCH DATA WITHOUT AN API
   // const post = await getPost(slug);
@@ -39,7 +40,7 @@ const SinglePostPage = async ({ params }) => {
     <div className={styles.container}>
       {post.img && (
         <div className={styles.imgContainer}>
-          <Image src={post.img} alt="" fill className={styles.img} />
+          <Image src={"https://images.pexels.com/photos/22863899/pexels-photo-22863899/free-photo-of-a-city-street-with-cars-and-buildings-on-both-sides.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"} alt="" fill className={styles.img} />
         </div>
       )}
       <div className={styles.textContainer}>
@@ -53,7 +54,7 @@ const SinglePostPage = async ({ params }) => {
           <div className={styles.detailText}>
             <span className={styles.detailTitle}>Published</span>
             <span className={styles.detailValue}>
-              {post.createdAt.toString().slice(4, 16)}
+              {/* {post.createdAt.toString().slice(4, 16)} */}
             </span>
           </div>
         </div>
